@@ -1,0 +1,2 @@
+# TerraneticHelper
+Discord bot
