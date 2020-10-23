@@ -7,8 +7,19 @@ class TerraneticHelper(discord.Client):
         super().__init__(**options)
         self.prefix = "!"
         self.channel = "bot-commands"
-        self.profiles = {"craftablescience#6001": {"portfolio": "git link", "timezone": "EST", "ticketcount": 1, "thumbnail": "https://avatars2.githubusercontent.com/u/26600014?s=460&u=7aae6b83e49784c397e038d8987ebd183f93c863&v=4"},
-                         "SebaSphere#0001": {"portfolio": "git link", "timezone": "EST", "ticketcount": 1, "thumbnail": "https://avatars0.githubusercontent.com/u/27737877?s=460&u=031ce51836265b5a24e446e7c4ff1aba9b68f36f&v=4"}}
+        self.profiles = {
+            "craftablescience#6001": {
+                "portfolio": "git link",
+                "timezone": "EST",
+                "ticketcount": 1,
+                "thumbnail": "https://avatars2.githubusercontent.com/u/26600014?s=460&u=7aae6b83e49784c397e038d8987ebd183f93c863&v=4"},
+            "SebaSphere#0001": {
+                "portfolio": "git link",
+                "timezone": "EST",
+                "ticketcount": 1,
+                "thumbnail": "https://avatars0.githubusercontent.com/u/27737877?s=460&u=031ce51836265b5a24e446e7c4ff1aba9b68f36f&v=4"
+            }
+        }
 
     def get_response(self, message, author):
         cmd = message.strip().split(" ")
