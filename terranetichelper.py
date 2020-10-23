@@ -7,6 +7,8 @@ class TerraneticHelper(discord.Client):
         super().__init__(**options)
         self.prefix = "!"
         self.channel = "bot-commands"
+        self.profiles = {"craftablescience#6001": {"github": "git link", "timezone": "EST"},
+                            "SebaSphere#0001": {"github": "git link", "timezone": "EST"}}
 
     def get_response(self, message, author):
         cmd = message.strip().split(" ")
@@ -26,6 +28,15 @@ class TerraneticHelper(discord.Client):
                 embed.description = "Good at math, friend of SebaSphere."
                 embed.set_thumbnail(url="https://avatars2.githubusercontent.com/u/26600014?s=460&u=7aae6b83e49784c397e038d8987ebd183f93c863&v=4")
                 return embed
+            elif cmd == "profile":
+                if author in self.profiles.keys():
+                    embed.title = author
+                    embed.description = "botom text\n\n**Timezone:** " + self.profiles[author]["timezone"]
+                    return embed
+                else:
+                    embed.title = "ERROR"
+                    embed.description = "You must be a developer to use this command."
+                    return embed
             elif cmd == "help":
                 if len(message.split(" ")) > 1:
                     if message.split(" ")[1] == "-c":
@@ -33,7 +44,8 @@ class TerraneticHelper(discord.Client):
                         embed.description = self.prefix + "seba :: Prints a message about SebaSphere.\n" + \
                                             self.prefix + "craft :: Prints a message about craftablescience\n" + \
                                             self.prefix + "help :: Get help with using the bot.\n" + \
-                                            self.prefix + "help -c :: Prints a list of bot commands."
+                                            self.prefix + "help -c :: Prints a list of bot commands." + \
+                                            self.prefix + "profile :: Prints your developer profile."
                         return embed
                 else:
                     embed.title = "HELP"
